@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.ukryty {
+  display: none;
+}
+
+/* === EKRAN STARTOWY === */
+#ekran-start {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+#ekran-start h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #a78bfa;
+}
+
+#pola-imion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 1rem 0;
+}
+
+#pola-imion input {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: #16213e;
+  color: #eee;
+  font-size: 15px;
+  width: 220px;
+}
+
+select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: #16213e;
+  color: #eee;
+  font-size: 15px;
+  margin-left: 8px;
+}
+
+/* === PRZYCISKI === */
+button {
+  margin-top: 1rem;
+  padding: 10px 28px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #6d28d9;
+}
+
+button:disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+/* === EKRAN GRY === */
+#ekran-gry {
+  width: 100%;
+  max-width: 860px;
+}
+
+#info-tury {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 18px;
+}
+
+#nazwa-gracza {
+  font-weight: bold;
+  color: #a78bfa;
+  font-size: 22px;
+}
+
+#rzuty-info {
+  color: #aaa;
+  font-size: 15px;
+}
+
+/* === KOŚCI === */
+#kontener-kosci {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.kosc {
+  width: 72px;
+  height: 72px;
+  background: #fff;
+  color: #1a1a2e;
+  border-radius: 14px;
+  font-size: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: border 0.15s, transform 0.15s;
+  user-select: none;
+}
+
+.kosc:hover {
+  transform: scale(1.08);
+}
+
+
+.kosc.trzymana {
+  border-color: #a78bfa;
+  background: #ede9fe;
+}
+
+/* === ANIMACJA RZUTU === */
+@keyframes rzut {
+  0%   { transform: rotate(0deg) scale(1); }
+  20%  { transform: rotate(-20deg) scale(0.8); }
+  50%  { transform: rotate(15deg) scale(0.85); }
+  80%  { transform: rotate(-10deg) scale(0.95); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+.kosc.animacja {
+  animation: rzut 0.5s ease;
+}
+
+/* === KARTA WYNIKÓW === */
+#karta-wynikow {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  font-size: 14px;
+}
+
+#karta-wynikow th {
+  background: #16213e;
+  padding: 8px 12px;
+  text-align: center;
+  color: #a78bfa;
+  border-bottom: 2px solid #7c3aed;
+}
+
+#karta-wynikow th:first-child {
+  text-align: left;
+}
+
+#karta-wynikow td {
+  padding: 7px 12px;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+
+#karta-wynikow td.wynik-komorka {
+  text-align: center;
+  cursor: pointer;
+  color: #a78bfa;
+  font-weight: bold;
+}
+
+#karta-wynikow td.wynik-komorka:hover {
+  background: #2a1f4a;
+}
+
+
+#karta-wynikow td.wypelniona {
+  color: #eee;
+  cursor: default;
+  font-weight: normal;
+}
+
+#karta-wynikow td.wypelniona:hover {
+  background: transparent;
+}
+
+
+#karta-wynikow td.podglad {
+  color: #7c3aed;
+}
+
+
+#karta-wynikow td.podglad-zero {
+  color: #555;
+}
+
+
+.wiersz-sekcja td {
+  background: #0f0f23;
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  padding: 5px 12px;
+}
+
+
+.wiersz-suma td {
+  font-weight: bold;
+  background: #16213e;
+}
+
+/* === EKRAN KOŃCOWY === */
+#ekran-koniec {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+#ekran-koniec h2 {
+  font-size: 2.5rem;
+  color: #a78bfa;
+  margin-bottom: 1.5rem;
+}
+
+#wyniki-finalne {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.wynik-wiersz {
+  display: flex;
+  justify-content: space-between;
+  background: #16213e;
+  padding: 10px 24px;
+  border-radius: 10px;
+  width: 300px;
+  font-size: 16px;
+}

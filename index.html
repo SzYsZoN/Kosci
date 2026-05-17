@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kości</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ekran startowy -->
+  <div id="ekran-start">
+    <h1>Kości</h1>
+    <label>Liczba graczy:
+      <select id="liczba-graczy">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </label>
+    <div id="pola-imion"></div>
+    <button id="btn-start">Rozpocznij grę</button>
+  </div>
+
+  <!-- Ekran gry (ukryty na start) -->
+  <div id="ekran-gry" class="ukryty">
+
+    <div id="info-tury">
+      <span id="nazwa-gracza"></span>
+      <span id="rzuty-info"></span>
+    </div>
+
+    <!-- Kości -->
+    <div id="kontener-kosci"> </div>
+
+    <button id="btn-rzut">Rzuć kośćmi</button>
+
+    <!-- Karta wyników -->
+    <table id="karta-wynikow">
+    </table>
+
+  </div>
+
+  <!-- Ekran końcowy (ukryty na start) -->
+  <div id="ekran-koniec" class="ukryty">
+    <h2>Koniec gry!</h2>
+    <div id="wyniki-finalne"></div>
+    <button id="btn-restart">Zagraj ponownie</button>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
