@@ -19,13 +19,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install ESLint
         run: npm install eslint --save-dev
 
       - name: Run ESLint
-        run: npx eslint game.js --format json --output-file eslint-report.json || true
+        run: npx eslint ^.js --format json --output-file eslint-report.json || true
 
       - name: Upload ESLint report as artifact
         uses: actions/upload-artifact@v4
