@@ -25,7 +25,7 @@ jobs:
         run: npm install eslint --save-dev
 
       - name: Run ESLint
-        run: npx eslint ^.js --format json --output-file eslint-report.json || true
+        run: npx eslint *.js --format json --output-file eslint-report.json || true
 
       - name: Upload ESLint report as artifact
         uses: actions/upload-artifact@v4
