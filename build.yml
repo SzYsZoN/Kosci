@@ -1,0 +1,35 @@
+name: CI Code Quality on ino_dev
+
+on:
+  push:
+    branches:
+      - ino_dev
+  pull_request:
+    branches:
+      - ino_dev
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ESLint
+        run: npm install eslint --save-dev
+
+      - name: Run ESLint
+        run: npx eslint game.js --format json --output-file eslint-report.json || true
+
+      - name: Upload ESLint report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eslint-report
+          path: eslint-report.json
+          retention-days: 7
